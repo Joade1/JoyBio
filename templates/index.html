@@ -1,0 +1,78 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Specimen Size Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 90%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 1rem;
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Specimen Size Calculator</h2>
+        <form method="post">
+            <input type="text" name="username" placeholder="Your name" required><br>
+            <input type="number" step="any" name="measured" placeholder="Measured Size (µm)" required><br>
+            <input type="number" step="any" name="magnification" placeholder="Magnification" required><br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        {% if name %}
+        <div class="result">
+            <p><strong>{{ name }}</strong>, your specimen's real-life size is:</p>
+            <p><strong>{{ size }} µm</strong></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
